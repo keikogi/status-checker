@@ -40,7 +40,7 @@ class StatusChecker
             array(
                 CURLOPT_CONNECTTIMEOUT => 2,
                 CURLOPT_TIMEOUT => 5,
-                CURLOPT_HEADER => TRUE,
+                CURLOPT_HEADER => FALSE,
                 CURLOPT_RETURNTRANSFER => TRUE,
                 CURLOPT_URL => self::API_URL
             )
