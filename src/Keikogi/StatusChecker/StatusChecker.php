@@ -4,7 +4,7 @@ namespace Keikogi\StatusChecker;
 
 class StatusChecker
 {
-    const VERSION = '1.0.0';
+    const VERSION = '1.0';
 
     const API_URL = 'http://api.keikogi.ru/index.php';
 
