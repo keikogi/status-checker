@@ -101,4 +101,24 @@ class MySQLAgent implements AgentInterface
             return false;
         }
     }
+
+    public function addTimerLogItem($timer = 0)
+    {
+        try {
+            $q = $this->db->prepare(
+                "INSERT INTO timer_log VALUES (NULL, :time, :timer)"
+            );
+
+            $q->execute(
+                array(
+                    ':time' => date('Y-m-d H:i:s'),
+                    ':timer' => $timer,
+                )
+            );
+
+            return true;
+        } catch (\PDOExecption $e) {
+            return false;
+        }
+    }
 }

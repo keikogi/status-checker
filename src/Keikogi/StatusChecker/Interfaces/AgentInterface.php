@@ -9,4 +9,6 @@ interface AgentInterface
     public function addCoreLogItem($service, $code, $message);
 
     public function addNotifyLogItem($service, $notify, $contact, $message);
+
+    public function addTimerLogItem($timer = 0);
 }

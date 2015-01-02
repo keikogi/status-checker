@@ -8,10 +8,16 @@ class BaseLogger
 
     protected $added;
 
-    public function __construct($agent)
+    public function __construct()
+    {
+        $this->NonAdd();
+    }
+
+    public function setAgent($agent)
     {
         $this->agent = $agent;
-        $this->NonAdd();
+
+        return $this;
     }
 
     public function getAgent()
@@ -30,11 +36,15 @@ class BaseLogger
     public function NonAdd()
     {
         $this->added = false;
+
+        return $this;
     }
 
     public function YesAdd()
     {
         $this->added = true;
+
+        return $this;
     }
 
     public function isAdd()

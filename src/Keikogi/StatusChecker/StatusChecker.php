@@ -79,11 +79,14 @@ class StatusChecker
 
     public function run()
     {
+        $timer = 0;
         $failCount = 0;
         $goodCount = 0;
 
         for ($i = 1; $i <= self::NUM_REQUESTS; $i++) {
+            $begin = microtime(true);
             $_result = $this->request($i);
+            $timer = microtime(true) - $begin;
 
             if ($_result['code'] == '200') {
                 ++$goodCount;
@@ -108,6 +111,7 @@ class StatusChecker
             $this->code = 'DOWN';
         }
 
+        $this->agent->addTimerLogItem($timer / 3);
         $this->logAnswer();
     }
 
@@ -118,10 +122,18 @@ class StatusChecker
         }
 
         foreach ($this->loggerList as $logger) {
-            $logger->add($this->code, $this->message);
+            $logger
+                ->setAgent($this->agent)
+                ->add(
+                    $this->code,
+                    $this->message
+                );
             if ($this->notifyList) {
                 foreach ($this->notifyList as $notify) {
-                    $notify->init()->setLogger($logger)->send();
+                    $notify
+                        ->init()
+                        ->setLogger($logger)
+                        ->send();
                 }
             }
         }
