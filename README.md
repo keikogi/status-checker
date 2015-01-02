@@ -48,7 +48,7 @@ $agent = new MySQLAgent(
 );
 
 $loggerList = array(
-    new Loggers\SystemLogger($agent),
+    new Loggers\SystemLogger(),
 );
 
 $notifyList = array(
