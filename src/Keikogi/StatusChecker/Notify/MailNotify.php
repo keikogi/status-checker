@@ -38,9 +38,9 @@ class MailNotify extends BaseNotify implements NotifyInterface
 
     public function processMessage($message)
     {
-        $text  = '<h1> ' . self::SIGN . ' ' . $this->logger->getName() . ' message</h1>';
+        $text  = '<h1>' . self::SIGN . ' ' . $this->logger->getName() . ' message</h1>';
         $text .= '<h2>Status changed to ' . $message['code'] . '</h2>';
-        $text .= ucfirst($this->logger->getName()) . ' are ';
+        $text .= ucfirst($this->logger->getName()) . ' are';
 
         if ($message['code'] == 'UP') {
             $text .= ' up and feeling good.';
