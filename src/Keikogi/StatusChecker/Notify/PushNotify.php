@@ -24,6 +24,10 @@ class PushNotify extends BaseNotify implements NotifyInterface
                 $this->protectedMessage
             );
 
+            if (!$this->protectedMessage) {
+                $this->protectedMessage = 'n/a @' . date('Y-m-d H:i');
+            }
+
             $this->sender
                 ->user($contact)
                 ->note(
