@@ -8,6 +8,6 @@ class OpenVPNLogger extends ServiceLogger
 {
     public function getName()
     {
-        return 'Openvpn';
+        return 'openvpn';
     }
 }
