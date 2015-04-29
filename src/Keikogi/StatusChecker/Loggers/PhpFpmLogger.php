@@ -8,6 +8,6 @@ class PhpFpmLogger extends ServiceLogger
 {
     public function getName()
     {
-        return 'php-fpm';
+        return 'php5-fpm';
     }
 }
