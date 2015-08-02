@@ -8,6 +8,6 @@ class TestLogger extends ServiceLogger
 {
     public function getName()
     {
-        return 'test';
+        return 'test_#' . time();
     }
 }
